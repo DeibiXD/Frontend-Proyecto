@@ -14,9 +14,18 @@
     <button class="btn btn-danger" onclick="testing()">
                 Testing
     </button>
+
+    <h3 id="subscriptionMessage"></h3>
+
 <br>
     <div class="container col landing-page" id="landing-page">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas iusto perspiciatis maxime! Incidunt voluptatem excepturi error dolor provident, temporibus, explicabo et commodi quos voluptatum rem reiciendis, eaque nisi. Doloribus ut eaque odit, numquam expedita cumque voluptate assumenda officia quisquam recusandae asperiores enim! Facere suscipit tempora mollitia, aperiam quas rem laborum quo amet doloremque animi quia similique dolorem ipsam, commodi eum unde illo autem quibusdam harum ex, dolorum accusamus rerum nesciunt? Consectetur corrupti veritatis, rem, exercitationem fugiat mollitia vero possimus nostrum excepturi non numquam dolorum nobis quaerat nulla. Non ratione architecto quibusdam similique hic, voluptate blanditiis quis, alias, fugiat consequuntur aliquam.
+
+      <input type="text" id="textbox1" placeholder="Enter username">
+      <input type="password" id="textbox2" placeholder="Enter password">
+      <button onclick="checkLogin()">Login</button>
+
+
+
     </div>
 
 <br>
@@ -24,7 +33,7 @@
 
         <div class="offcanvas offcanvas-start" id="demo">
             <div class="offcanvas-header">
-              <h1 class="offcanvas-title">Heading</h1>
+              <h1 class="offcanvas-title">Tu plan actual</h1>
               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
             </div>
             <div class="offcanvas-body">
@@ -39,9 +48,11 @@
             Open Offcanvas Sidebar
           </button>
 
-
     </div>
 
+    <div class="container col subscription-page" id="subscription-page">
+      <h2>Subs</h2>
+    </div>
 
     <script src="assets/js/controlador.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
