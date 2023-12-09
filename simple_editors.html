@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/dracula.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+  <title>CodeMirror Screens</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .code-screen {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="toggleScreens('html-screen')">HTML</button>
+  <button onclick="toggleScreens('css-screen')">CSS</button>
+  <button onclick="toggleScreens('js-screen')">JavaScript</button>
+
+  <div id="html-screen" class="code-screen">
+    <h2>HTML Code</h2>
+    <textarea id="html-code"></textarea>
+  </div>
+
+  <div id="css-screen" class="code-screen">
+    <h2>CSS Code</h2>
+    <textarea id="css-code"></textarea>
+  </div>
+
+  <div id="js-screen" class="code-screen">
+    <h2>JavaScript Code</h2>
+    <textarea id="js-code"></textarea>
+  </div>
+
+  <script>
+    // Create CodeMirror instances
+    var htmlEditor = CodeMirror.fromTextArea(document.getElementById("html-code"), {
+      mode: "htmlmixed",
+      lineNumbers: false,
+      theme: "dracula"
+    });
+
+    var cssEditor = CodeMirror.fromTextArea(document.getElementById("css-code"), {
+      mode: "css",
+      lineNumbers: false,
+      theme: "dracula"
+    });
+
+    var jsEditor = CodeMirror.fromTextArea(document.getElementById("js-code"), {
+      mode: "javascript",
+      lineNumbers: false,
+      theme: "dracula"
+    });
+
+    function toggleScreens(screenId) {
+      var screens = document.querySelectorAll('.code-screen');
+      screens.forEach(screen => {
+        screen.style.display = (screen.id === screenId) ? 'block' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>

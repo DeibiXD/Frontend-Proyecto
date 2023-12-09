@@ -3,12 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Landing Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/estilos.css">
     <script src="https://kit.fontawesome.com/f08bd6dfc1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<!-- Add this to the <body> section of your index.html file -->
+    <div class="container mt-5">
+        <div class="text-center">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</button>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createUserModal">Create User</button>
+        </div>
+      </div>
+      
+      <!-- Login Modal -->
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Add your login form here -->
+              <form>
+                <!-- Username and password inputs -->
+                <div class="mb-3">
+                  <label for="loginUsername" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="loginUsername" required>
+                </div>
+                <div class="mb-3">
+                  <label for="loginPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="loginPassword" required>
+                </div>
+                <!-- Login button -->
+                <button type="submit" class="btn btn-primary">Log In</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Create User Modal -->
+      <div class="modal fade" id="createUserModal" tabindex="-1" aria-labelledby="createUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="createUserModalLabel">Create User</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Add your user creation form here -->
+              <form>
+                <!-- Username and password inputs -->
+                <div class="mb-3">
+                  <label for="createUsername" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="createUsername" required>
+                </div>
+                <div class="mb-3">
+                  <label for="createPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="createPassword" required>
+                </div>
+                <!-- Create user button -->
+                <button type="submit" class="btn btn-success">Create User</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

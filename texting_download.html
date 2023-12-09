@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Area Download</title>
+</head>
+<body>
+
+    <textarea id="myTextArea" rows="5" cols="50">Type your text here...</textarea>
+    <br>
+    <button onclick="downloadText()">Download Text</button>
+
+    <script>
+        function downloadText() {
+            // Get the text from the text area
+            var textContent = document.getElementById('myTextArea').value;
+
+            // Create a Blob from the text content
+            var blob = new Blob([textContent], { type: 'text/plain' });
+
+            // Create a download link
+            var downloadLink = document.createElement('a');
+            downloadLink.download = 'text_file.js';
+            downloadLink.href = window.URL.createObjectURL(blob);
+
+            // Append the link to the body
+            document.body.appendChild(downloadLink);
+
+            // Trigger a click on the link to start the download
+            downloadLink.click();
+
+            // Remove the link from the body
+            document.body.removeChild(downloadLink);
+        }
+    </script>
+
+</body>
+</html>

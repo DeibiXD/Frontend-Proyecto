@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMirror Download</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+</head>
+<body>
+
+    <textarea id="htmlCode" class="codearea"></textarea>
+    <br>
+    <button onclick="downloadCode(htmlEditor, 'code_file.html')">Download HTML</button>
+
+    <textarea id="cssCode" class="codearea"></textarea>
+    <br>
+    <button onclick="downloadCode(cssEditor, 'code_file.css')">Download CSS</button>
+
+    <textarea id="jsCode" class="codearea"></textarea>
+    <br>
+    <button onclick="downloadCode(jsEditor, 'code_file.js')">Download JavaScript</button>
+
+    <script>
+        // Initialize CodeMirror instances
+        var htmlEditor = CodeMirror.fromTextArea(document.getElementById('htmlCode'), {
+            mode: 'htmlmixed',
+            lineNumbers: true
+        });
+
+        var cssEditor = CodeMirror.fromTextArea(document.getElementById('cssCode'), {
+            mode: 'css',
+            lineNumbers: true
+        });
+
+        var jsEditor = CodeMirror.fromTextArea(document.getElementById('jsCode'), {
+            mode: 'javascript',
+            lineNumbers: true
+        });
+
+        function downloadCode(editor, fileName) {
+            // Get the content from the specified CodeMirror instance
+            var codeContent = editor.getValue();
+
+            // Create a Blob with the content
+            var blob = new Blob([codeContent], { type: 'text/plain' });
+
+            // Create a download link
+            var downloadLink = document.createElement('a');
+            downloadLink.download = fileName;
+            downloadLink.href = window.URL.createObjectURL(blob);
+
+            // Append the link to the body
+            document.body.appendChild(downloadLink);
+
+            // Trigger a click on the link to start the download
+            downloadLink.click();
+
+            // Remove the link from the body
+            document.body.removeChild(downloadLink);
+        }
+    </script>
+
+</body>
+</html>
