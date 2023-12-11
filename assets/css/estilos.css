@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 #landing-page {
     display: block;
 }
@@ -10,5 +10,19 @@
 #subscription-page {
     display: none;
 }
-=======
->>>>>>> Stashed changes
+
+.list-container {
+    display: none;
+  }
+
+  .list-container ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .list-container li {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+    margin-bottom: 8px; /* Adjust as needed for spacing */
+  }

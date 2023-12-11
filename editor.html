@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Editor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/theme/material.min.css">
+</head>
+<body>
+
+  <h1>Code Editor</h1>
+
+  <div>
+    <label for="snippet-name">Snippet Name:</label>
+    <div id="snippet-name"></div>
+  </div>
+
+  <div>
+    <label for="code-editor">Code:</label>
+    <textarea id="code-editor"></textarea>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/htmlmixed/htmlmixed.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/css/css.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/javascript/javascript.js"></script>
+
+  <script>
+    // Retrieve selected snippet information from local storage
+    const selectedSnippetName = localStorage.getItem('selectedSnippetName');
+    const selectedSnippetCode = localStorage.getItem('selectedSnippetCode');
+    const selectedSnippetMode = parseInt(localStorage.getItem('selectedSnippetMode'));
+
+    // Display snippet name
+    const snippetNameElement = document.getElementById('snippet-name');
+    snippetNameElement.textContent = selectedSnippetName;
+
+    // Initialize CodeMirror
+    const codeEditor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
+      lineNumbers: true,
+      mode: getMode(selectedSnippetMode),
+      theme: 'material',
+    });
+
+    // Set initial code content
+    codeEditor.setValue(selectedSnippetCode);
+
+    // Function to get CodeMirror mode based on snippet mode
+    function getMode(snippetMode) {
+      switch (snippetMode) {
+        case 1:
+          return 'htmlmixed';
+        case 2:
+          return 'css';
+        case 3:
+          return 'javascript';
+        default:
+          return 'htmlmixed';
+      }
+    }
+  </script>
+
+</body>
+</html>
